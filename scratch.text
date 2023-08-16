@@ -1,0 +1,9 @@
+two type of mongoose ralationship
+1)Embedding 
+embed data into the model itself 
+when we embed we can only access the embedded data through the parent
+when to embed
+-when no other screen require to see that data alone
+
+2)referencing
+In referencing we create the item on its own collection and then associate the id to the parent.

@@ -9,7 +9,8 @@ const albumSchema = new Schema({
   releaseDate: Date,
   featuredArtist: [String],
   genre: String, 
-  songs: [songSchema],   
+  // songs: [songSchema],  //embedded a Schema  
+  songs: [{ref: "Song", type: mongoose.Schema.Types.ObjectId}],
   writers: [String],
   producers: [String],
 });
