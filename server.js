@@ -17,17 +17,23 @@ app.get("/songs", async (req, res) => {
   const allSongs = await Song.find({});
   res.send(allSongs);
 });
+
+app.delete("/songs/:id", async(req, res)=>{
+   const deleteSong = await Song.deleteOne({_id: req.params.id})
+   res.send(deleteSong)
+})
 app.post("/songs", async (req, res) => {
   //create new song
   const createdSong = await Song.create(req.body);
   res.send(createdSong);
 });
-
-app.post("/albums", async (req, res) => {
-  req.body.releaseDate = new Date(req.body.releaseDate);
-  const createdAlbum = await Album.create(req.body);
-  res.send(createdAlbum);
-});
+app.get("/songs/:id", async (req, res) => {
+    //update a song
+    //for updates if you dont pas new: true your response aftet the await will show
+    //the old object instead of the updated *not it will update though*
+    const getASong = await Song.findById(req.params.id)
+    res.send(getASong);
+  });
 
 app.put("/songs/:id", async (req, res) => {
   //update a song
@@ -38,6 +44,13 @@ app.put("/songs/:id", async (req, res) => {
   });
   res.send(updatedSong);
 });
+
+app.post("/albums", async (req, res) => {
+  req.body.releaseDate = new Date(req.body.releaseDate);
+  const createdAlbum = await Album.create(req.body);
+  res.send(createdAlbum);
+});
+
 
 const PORT = 3400;
 app.listen(PORT, () => {
