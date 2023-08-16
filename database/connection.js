@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb+srv://ramahawai87:M27vALXu6CVZlJS4@cluster0.n2cex8l.mongodb.net/SongsAlbumTracker?retryWrites=true')
 
 mongoose.connection.on("connected", ()=>{
-    console.log(`We are connected to MongoDB`);
+    console.log(`MongoDB IS CONNECTED`);
 })
 
 mongoose.connection.on('error',  err=>{

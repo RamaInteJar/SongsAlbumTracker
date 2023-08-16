@@ -1,5 +1,5 @@
 const mongoose = require("../database/connection");
-const Song = require("./songs");
+const {songSchema} = require("./songs");
 const { Schema } = mongoose; //===mongoose.Schema
 
 //Define
@@ -8,10 +8,10 @@ const albumSchema = new Schema({
   artistName: String,
   releaseDate: Date,
   featuredArtist: [String],
-  genre: String,
-  songs: [Song],
-  writers: Array,
-  producers: Array,
+  genre: String, 
+  songs: [songSchema],   
+  writers: [String],
+  producers: [String],
 });
 
 const Album = mongoose.model("Album", albumSchema)
