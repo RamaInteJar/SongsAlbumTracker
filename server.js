@@ -19,7 +19,9 @@ app.get("/songs", async (req, res) => {
 });
 
 app.delete("/songs/:id", async(req, res)=>{
-   const deleteSong = await Song.deleteOne({_id: req.params.id})
+    //get id from req.params
+    const id = req.params.id;
+   const deleteSong = await Song.deleteOne({_id: id})
    res.send(deleteSong)
 })
 app.post("/songs", async (req, res) => {
