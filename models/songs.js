@@ -3,7 +3,7 @@ const { Schema } = mongoose; //===mongoose.Schema
 
 //Define
 const songSchema = new Schema({
-  Name: String,
+  name: String,
   artistName: String,
   featuredArtist: [String],
   genre: String,

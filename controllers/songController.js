@@ -8,25 +8,28 @@ router.get("/", async (req, res) => {
     res.render("songs/index.ejs", {songs: allSongs});
   });
   
+  router.get("/new", (req, res)=>{
+    res.render("songs/new.ejs")
+  })
   router.delete("/:id", async (req, res) => {
     //get id from req.params
     const id = req.params.id;
     const deleteSong = await Song.deleteOne({ _id: id });
-    res.send(deleteSong);
+    res.redirect("/songs");
   });
   
   router.post("/", async (req, res) => {
     //create new song
     const createdSong = await Song.create(req.body);
-    res.send(createdSong);
+    res.redirect("/songs");
   });
+
+
   
   router.get("/:id", async (req, res) => {
-    //update a song
-    //for updates if you dont pas new: true your response aftet the await will show
-    //the old object instead of the updated *not it will update though*
+    //show one
     const getASong = await Song.findById(req.params.id);
-    res.send(getASong);
+    res.render("songs/show.ejs", {song:getASong});
   });
   
   router.put("/:id", async (req, res) => {

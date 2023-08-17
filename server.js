@@ -4,12 +4,14 @@ const { Song } = require("./models/songs");
 const songController = require("./controllers/songController")
 const albumController = require("./controllers/albumController")
 const Album = require("./models/albums");
+const methodOverride = require("method-override")
 
 //Middleware
 //allows form data
 app.use(express.urlencoded({ extended: false }));
 //when you want to use res.json instead of res.send
 app.use(express.json());
+app.use(methodOverride("_method"))
 
 app.get("/", (req, res) => {
   res.send("Hello from the server side");
