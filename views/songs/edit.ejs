@@ -1,0 +1,14 @@
+<form action="/songs/<%= song._id %>?_method" method="POST">
+    <input type="text" name="name" value="<%= song.name %>" placeholder="name" />
+    <input type="text" name="artistName" value="<%= song.artistName %>" placeholder="artist name" />
+    <input type="text" name="featuredArtist" value="<%= song.featuredArtist %>" placeholder="featured artist" />
+    <input type="text" name="featuredArtist" value="<%= song.featuredArtist %>" placeholder="featured artist" />
+    <input type="text" name="releaseDate" value="<%= song.releaseDate %>" placeholder="release date" />
+    <input type="text" name="genre" value="<%= song.genre %>" placeholder="genre" />
+    <input type="text" name="writer" value="<%= song.writer %>" placeholder="writer's name" />
+    <input type="text" name="writer" value="<%= song.writer %>" placeholder="writer's name" />
+    <input type="text" name="producers" value="<%= song.producers %>" placeholder="producers name" />
+    <input type="text" name="producers" value="<%= song.producers %>" placeholder="producers name" />
+    <button type="submit">Create new song</button>
+  </form>
+  

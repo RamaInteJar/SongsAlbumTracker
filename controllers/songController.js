@@ -36,11 +36,15 @@ router.get("/", async (req, res) => {
     //update a song
     //for updates if you dont pas new: true your response aftet the await will show
     //the old object instead of the updated *not it will update though*
-    const id = req.params.id;
-    const updatedSong = await Song.updateOne({ _id: id }, req.body, {
+    const updatedSong = await Song.updateOne({ _id: req.params.id }, req.body, {
       new: true,
     });
     res.send(updatedSong);
   });
+
+  router.get('/:id/edit', async(req, res)=>{
+    const getASong = await Song.findById(req.params.id);
+    res.render('songs/edit.ejs', {song:getASong})
+  })
 
 module.exports = router;
